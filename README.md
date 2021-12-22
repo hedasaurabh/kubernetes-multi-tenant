@@ -108,4 +108,8 @@ chmod +x ./kubectl-hns
 
 ## 5. Multi Tenancy Configuration & Demo
 
-All the commands are provided inside multi-tenancy directory in test.md file
+All the commands are provided inside multi-tenancy directory in test.md file.
+https://github.com/hedasaurabh/kubernetes-multi-tenant/blob/master/multi-tenancy/test.md
+
+
+
