@@ -34,6 +34,7 @@ This project supports this functionality and is backed by Kubernetes community. 
 
 Hierarchy within the Atlan prod cluster would look like this
 
+```
 Atlan SAAS NS
   -> Company_ABC Namespace
 	  -> SAAS DEV NS
@@ -42,7 +43,7 @@ Atlan SAAS NS
   -> Company_XYZ Namespace
 	  -> SAAS DEV NS
 	  -> SAASTEST NS
-    
+``` 
 ## 3. Component description
 
 
