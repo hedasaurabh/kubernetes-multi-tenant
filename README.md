@@ -35,12 +35,12 @@ This project supports this functionality and is backed by Kubernetes community. 
 Hierarchy within the Atlan prod cluster would look like this
 
 ```
-Atlan SAAS NS
-  -> Company_ABC Namespace
+atlan-saas Namespace
+  -> customer-abc Namespace
 	  -> SAAS DEV NS
 	  -> SAAS TEST NS
 
-  -> Company_XYZ Namespace
+  -> customer-xyz Namespace
 	  -> SAAS DEV NS
 	  -> SAASTEST NS
 ``` 
@@ -57,3 +57,23 @@ More details are [here](https://github.com/kubernetes-sigs/hierarchical-namespac
 
 There is project called capsule (github.com/clastix/capsule) which also implements multi tenancy in Kubernetes cluster. Capsule Controller in a single cluster, aggregates multiple namespaces in Tenant. Capsule Engine will keep the different tenants isolated from each other. Network policies, RBAC & Resource Quotas defined at tenant level are automatically inherited by all the namespaces in the tenant.
 
+
+## 5. Installation
+
+Install HNC using below command:
+1. Clone this repository.
+2. export KUBECONFIG= <path_of_kubeconfig_file>
+3. cd kubernetes-multi-tenant
+4. kubectl apply -f hnc-install/hnc-manager.yaml
+
+Install the kubectl HNC plugin
+```
+HNC_VERSION=v0.9.0
+HNC_PLATFORM=linux_amd64 # also supported: darwin_amd64, windows_amd64
+curl -L https://github.com/kubernetes-sigs/hierarchical-namespaces/releases/download/${HNC_VERSION}/kubectl-hns_${HNC_PLATFORM} -o ./kubectl-hns
+chmod +x ./kubectl-hns
+```
+
+## 5. Hierarchical Configuration
+
+All the commands are provided inside multi-tenancy directory in test.md file
