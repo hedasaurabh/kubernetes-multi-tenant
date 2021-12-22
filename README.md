@@ -1,5 +1,6 @@
 # kubernetes-multi-tenant
 
+
 ## Table of contents
 * [Description](#desc)
   * [Proposed Solution](#sol)
@@ -10,7 +11,8 @@
 * [Component description](#component)
 * [Alternate Approach](#approach)
 * [Installation](#installation)
-* [Multi Tenancy Configuration & Demo](#demo)
+* [Demo](#demo)
+* [Demonstrate the power of hierarchial namespace](#power)
 * [Deployment using GitOps - WIP](#gitops)
 
 <a name="desc"/>
@@ -112,9 +114,15 @@ chmod +x ./kubectl-hns
 All the commands are provided inside multi-tenancy directory in demo.md file.
 https://github.com/hedasaurabh/kubernetes-multi-tenant/blob/cf5d86a8a2324e31c4556e13d847d41ca1d2c49f/multi-tenancy/demo.md
 
+<a name="power"/>
+
+## 6. Demonstrate the power of hierarchial namespace
+
+(https://github.com/hedasaurabh/kubernetes-multi-tenant/blob/cf5d86a8a2324e31c4556e13d847d41ca1d2c49f/multi-tenancy/demo.md#demonstrate-the-power-of-hierarchial-namespace)
+
 <a name="gitops"/>
 
-## 6. Deployment using GitOps [Work In Progress]
+## 7. Deployment using GitOps [Work In Progress]
 
 Entire deployment of the hierarchical namespace controller can be done using GitOps tools like ArgoCD & FluxCD
 
