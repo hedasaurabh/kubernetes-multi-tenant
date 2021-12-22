@@ -53,7 +53,7 @@ Then easily apply policies like RBAC and Network Policies across all namespaces 
 More details are [here](https://github.com/kubernetes-sigs/hierarchical-namespaces/blob/master/docs/user-guide/concepts.md)
 
 
-## 4. Alternat Approach
+## 4. Alternate Approach
 
 There is project called capsule (github.com/clastix/capsule) which also implements multi tenancy in Kubernetes cluster. Capsule Controller in a single cluster, aggregates multiple namespaces in Tenant. Capsule Engine will keep the different tenants isolated from each other. Network policies, RBAC & Resource Quotas defined at tenant level are automatically inherited by all the namespaces in the tenant.
 
