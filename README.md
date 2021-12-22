@@ -1,10 +1,26 @@
 # kubernetes-multi-tenant
 
+## Table of contents
+* [Description](#desc)
+  * [Proposed Solution](#sol)
+* [Technology](#Tech)
+  * [Chosen technology/tools](#chosen)
+  * [Reason for technology decision](#deci)
+  * [Working Model](#model)
+* [Component description](#component)
+* [Alternate Approach](#approach)
+* [Installation](#installation)
+* [Multi Tenancy Configuration & Demo](#demo)
+
+<a name="desc"/>
+
 ## 1. Description
 
 Need: We need a cloud-native solution where we are planning to run the Atlan's SAAS offering on Kubernetes platform. As this is a SAAS platform the pain of deploying, managing and administrating the platform is Atlan's Responsibility. Also this platform would host multiple customer's SAAS deployment of Atlan's SAAS solution so we will need a Multi-tenant Kubernetes Cluster 
 
 Default Kubernetes namespaces are not flexible enough to meet a use case where particular namespace can provide further isolation within it. Also K8s namespaces cannot share resources among namespaces belonging to the same tenant. Also it won't be a viable solution to deploy dedicated cluster for each customer. With growing customer's, number of cluster would grow which will result in an operational nightmare described as _clusters sprawl_.
+
+<a name="sol"/>
 
 ## Proposed Solution:
 
@@ -19,18 +35,27 @@ For each customer there would a sub-namespace which will be independent of other
 1. Resource quota in terms of the compute, storage and network resources (network - optional) for the namespace.
 2. Names of the admins and account manager that would be accessing the sub-namespaces.
 
+<a name="Tech"/>
+
 ## 2. Technology
+
+<a name="chosen"/>
 
 ### Chosen technology/tools
 
 * Hierarchical Namespace Controller
 * Kubectl HNC plugin
 
+<a name="deci"/>
+
 ### Reason for technology decision
 
 To extend the functionality of Kubernetes in general and Kubernetes Namespaces in particular to add additional isolation within a namespace we need Hierarchical Namespace Controller.
 This project supports this functionality and is backed by Kubernetes community. This project also has a good chance to merge in the core Kubernetes platform in the future.
 
+<a name="model"/>
+
+### Working Model
 
 Hierarchy within the Atlan prod cluster would look like this
 
@@ -43,7 +68,10 @@ atlan-saas Namespace
   -> customer-xyz Namespace
 	  -> SAAS DEV NS
 	  -> SAASTEST NS
-``` 
+```
+
+<a name="component"/>
+
 ## 3. Component description
 
 
@@ -52,11 +80,13 @@ Then easily apply policies like RBAC and Network Policies across all namespaces 
 
 More details are [here](https://github.com/kubernetes-sigs/hierarchical-namespaces/blob/master/docs/user-guide/concepts.md)
 
+<a name="approach"/>
 
 ## 4. Alternate Approach
 
 There is project called capsule (github.com/clastix/capsule) which also implements multi tenancy in Kubernetes cluster. Capsule Controller in a single cluster, aggregates multiple namespaces in Tenant. Capsule Engine will keep the different tenants isolated from each other. Network policies, RBAC & Resource Quotas defined at tenant level are automatically inherited by all the namespaces in the tenant.
 
+<a name="installation"/>
 
 ## 5. Installation
 
@@ -74,6 +104,8 @@ curl -L https://github.com/kubernetes-sigs/hierarchical-namespaces/releases/down
 chmod +x ./kubectl-hns
 ```
 
-## 5. Hierarchical Configuration
+<a name="demo"/>
+
+## 5. Multi Tenancy Configuration & Demo
 
 All the commands are provided inside multi-tenancy directory in test.md file
