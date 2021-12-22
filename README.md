@@ -113,6 +113,7 @@ All the commands are provided inside multi-tenancy directory in test.md file.
 https://github.com/hedasaurabh/kubernetes-multi-tenant/blob/master/multi-tenancy/test.md
 
 <a name="gitops"/>
+
 ## 6. Deployment using GitOps [Work In Progress]
 
 Entire deployment of the hierarchical namespace controller can be done using GitOps tools like ArgoCD & FluxCD
