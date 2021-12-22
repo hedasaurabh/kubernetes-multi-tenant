@@ -6,7 +6,7 @@ Need: We need a cloud-native solution where we are planning to run the Atlan's S
 
 Default Kubernetes namespaces are not flexible enough to meet a use case where particular namespace can provide further isolation within it. Also K8s namespaces cannot share resources among namespaces belonging to the same tenant. Also it won't be a viable solution to deploy dedicated cluster for each customer. With growing customer's, number of cluster would grow which will result in an operational nightmare described as _clusters sprawl_.
 
-**Proposed Solution: **
+## Proposed Solution:
 
 We can use hierarchical namespace to acheive multi tenancy in K8s, hierarchical namespace are a regular Kubernetes namespace that contains a small custom resource that identifies a single, optional, parent namespace. 
 As customers would like to use SAAS platform instead of deploying it in their cloud, we can use hierarchical namespaces where each parent namespace would be the isolation layer. Each parent namespace would denote a particular tenant and the tenant admin would have the RBAC role associated with it to create certain sub-namespaces. 
