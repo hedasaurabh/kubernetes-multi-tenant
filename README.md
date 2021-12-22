@@ -11,6 +11,7 @@
 * [Alternate Approach](#approach)
 * [Installation](#installation)
 * [Multi Tenancy Configuration & Demo](#demo)
+* [Deployment using GitOps - WIP](#gitops)
 
 <a name="desc"/>
 
@@ -111,5 +112,21 @@ chmod +x ./kubectl-hns
 All the commands are provided inside multi-tenancy directory in test.md file.
 https://github.com/hedasaurabh/kubernetes-multi-tenant/blob/master/multi-tenancy/test.md
 
+<a name="gitops"/>
+## 6. Deployment using GitOps [Work In Progress]
 
+Entire deployment of the hierarchical namespace controller can be done using GitOps tools like ArgoCD & FluxCD
 
+ArgoCD is deployed using ArgoCD Autopilot project. More information can be found [here](#https://argocd-autopilot.readthedocs.io/en/stable/Getting-Started/) Updates to ArgoCD Autopilot will need to be made carefully. Since Autopilot is a young project, much iteration can be expected. There are other ways to deploy ArgoCD, check [here](#https://argo-cd.readthedocs.io/en/stable/getting_started/)
+
+Installation
+Download ArgoCD Autopilot [here](#https://argocd-autopilot.readthedocs.io/en/stable/Installation-Guide/)
+
+Export the valid Git token & kubeconfig
+
+[Saurabh MacBook-new] # export GIT_TOKEN=<>
+[Saurabh MacBook-new] # export KUBECONFIG=<>
+Export the Git Repo, the token you supplied earlier should allow cloning from, and pushing to this repo.
+[Saurabh MacBook-new] # export GIT_REPO=https://github.com/hedasaurabh/kubernetes-multi-tenant/argocd
+Running below command to deploy ArgoCD
+[Saurabh MacBook-new] # argocd-autopilot repo bootstrap
